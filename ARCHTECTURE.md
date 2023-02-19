@@ -12,7 +12,7 @@
 # Package externos (Comum)
 
 - uno: Cliente HTTP.
-- result: Retorno múltiplo no formato Failure e Success.
+- result_dart: Retorno múltiplo no formato Failure e Success.
 - Mocktail: Para testes de unidade.
 
 
