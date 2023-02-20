@@ -10,12 +10,7 @@ class MyCustomDrawer extends StatelessWidget {
     return NavigationDrawer(
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            left: 12,
-            top: 28,
-            right: 12,
-            bottom: 12,
-          ),
+          padding: const EdgeInsets.fromLTRB(12, 28, 12, 12),
           child: Text(
             'opções',
             style: theme.textTheme.titleSmall,
