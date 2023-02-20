@@ -8,6 +8,12 @@ class MyCustomDrawer extends StatelessWidget {
     final theme = Theme.of(context);
 
     return NavigationDrawer(
+      onDestinationSelected: (index) {
+        if (index == 1) {
+          Navigator.of(context).pop();
+          Navigator.of(context).pushNamed('/settings');
+        }
+      },
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 28, 12, 12),
