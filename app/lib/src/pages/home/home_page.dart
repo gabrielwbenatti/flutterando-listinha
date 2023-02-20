@@ -27,6 +27,45 @@ class _HomePageState extends State<HomePage> {
         icon: const Icon(Icons.add_outlined),
         label: const Text('nova lista'),
       ),
+      drawer: NavigationDrawer(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 12,
+              top: 28,
+              right: 12,
+              bottom: 12,
+            ),
+            child: Text(
+              'opções',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ),
+          NavigationDrawerDestination(
+            icon: const Icon(Icons.sync_outlined),
+            selectedIcon: const Icon(Icons.sync),
+            label: Row(
+              children: [
+                const Text(
+                  'sincronizar',
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  '12/12/12 12:12',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
+            ),
+          ),
+          const NavigationDrawerDestination(
+            icon: Icon(Icons.settings_outlined),
+            selectedIcon: Icon(Icons.settings),
+            label: Text('configurações'),
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Padding(
@@ -37,19 +76,19 @@ class _HomePageState extends State<HomePage> {
                 segments: const [
                   ButtonSegment(
                     value: 0,
-                    label: Text('Todos'),
+                    label: Text('todos'),
                   ),
                   ButtonSegment(
                     value: 1,
-                    label: Text('Pendentes'),
+                    label: Text('pendentes'),
                   ),
                   ButtonSegment(
                     value: 2,
-                    label: Text('Concluídas'),
+                    label: Text('concluídas'),
                   ),
                   ButtonSegment(
                     value: 3,
-                    label: Text('Desativadas'),
+                    label: Text('desativadas'),
                   ),
                 ],
                 onSelectionChanged: (values) {},
