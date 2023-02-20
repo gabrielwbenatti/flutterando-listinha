@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:listinha/src/pages/home/edit_task_board_page.dart';
-import 'package:listinha/src/pages/settings/setings_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-import 'pages/home/home_page.dart';
 import 'shared/themes/app_themes.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,18 +8,17 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    Modular.setInitialRoute('/home/');
+
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      themeMode: ThemeMode.dark,
-      // themeMode: ThemeMode.light,
+      // themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
-      routes: {
-        '/': (context) => const HomePage(),
-        '/settings': (context) => const SettingsPage(),
-        '/edit': (context) => const EditTaskBoardPage(),
-      },
+      routerDelegate: Modular.routerDelegate,
+      routeInformationParser: Modular.routeInformationParser,
     );
   }
 }
