@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         icon: const Icon(Icons.add_outlined),
         label: const Text('nova lista'),
       ),
-      drawer: const MyCustomDrawer(),
+      drawer: const CustomDrawer(),
       body: Column(
         children: [
           Padding(

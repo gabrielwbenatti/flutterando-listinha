@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyCustomDrawer extends StatelessWidget {
-  const MyCustomDrawer({super.key});
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class MyCustomDrawer extends StatelessWidget {
     return NavigationDrawer(
       onDestinationSelected: (index) {
         if (index == 1) {
-          Navigator.of(context).pop();
+          Navigator.of(context).pop(); // Esconde o drawer
           Navigator.of(context).pushNamed('/settings');
         }
       },
