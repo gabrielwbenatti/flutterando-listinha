@@ -25,7 +25,11 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.of(context).pushNamed('/edit');
+          // Indicar ao Modular que a rota /edit está dentro do home
+          // Método de posix (igual ao terminal)
+
+          // Navigator.of(context).pushNamed('/home/edit');
+          Navigator.of(context).pushNamed('./edit');
         },
         icon: const Icon(Icons.add_outlined),
         label: const Text('nova lista'),
