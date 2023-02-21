@@ -19,8 +19,6 @@ class _SettingsPageState extends State<SettingsPage> {
       (store) => store.themeMode,
     );
 
-    void changeThemeMode(ThemeMode mode) => appStore.themeMode.value = mode;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('listinha'),
@@ -40,19 +38,19 @@ class _SettingsPageState extends State<SettingsPage> {
             title: const Text('sistema'),
             value: ThemeMode.system,
             groupValue: appStore.themeMode.value,
-            onChanged: (mode) => changeThemeMode(mode!),
+            onChanged: appStore.changeThemeMode,
           ),
           RadioListTile<ThemeMode>(
             title: const Text('claro'),
             value: ThemeMode.light,
             groupValue: appStore.themeMode.value,
-            onChanged: (mode) => changeThemeMode(mode!),
+            onChanged: appStore.changeThemeMode,
           ),
           RadioListTile<ThemeMode>(
             title: const Text('escuro'),
             value: ThemeMode.dark,
             groupValue: appStore.themeMode.value,
-            onChanged: (mode) => changeThemeMode(mode!),
+            onChanged: appStore.changeThemeMode,
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
