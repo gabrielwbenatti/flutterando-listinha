@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:listinha/src/shared/store/app_store.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -12,6 +14,12 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
+
+    final appStore = context.watch<AppStore>(
+      (store) => store.themeMode,
+    );
+
+    void changeThemeMode(ThemeMode mode) => appStore.themeMode.value = mode;
 
     return Scaffold(
       appBar: AppBar(
@@ -31,20 +39,20 @@ class _SettingsPageState extends State<SettingsPage> {
           RadioListTile<ThemeMode>(
             title: const Text('sistema'),
             value: ThemeMode.system,
-            groupValue: ThemeMode.light,
-            onChanged: (mode) {},
+            groupValue: appStore.themeMode.value,
+            onChanged: (mode) => changeThemeMode(mode!),
           ),
           RadioListTile<ThemeMode>(
             title: const Text('claro'),
             value: ThemeMode.light,
-            groupValue: ThemeMode.light,
-            onChanged: (mode) {},
+            groupValue: appStore.themeMode.value,
+            onChanged: (mode) => changeThemeMode(mode!),
           ),
           RadioListTile<ThemeMode>(
             title: const Text('escuro'),
             value: ThemeMode.dark,
-            groupValue: ThemeMode.light,
-            onChanged: (mode) {},
+            groupValue: appStore.themeMode.value,
+            onChanged: (mode) => changeThemeMode(mode!),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
