@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:intl/intl.dart';
+import 'package:listinha/src/shared/store/app_store.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -6,6 +9,16 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final appStore = context.watch<AppStore>(
+      (store) => store.syncDate,
+    );
+    final syncDate = appStore.syncDate.value;
+    var syncDateText = 'Nunca';
+
+    if (syncDate != null) {
+      final format = DateFormat('dd/MM/yyyy às hh:mm');
+      syncDateText = format.format(syncDate);
+    }
 
     return NavigationDrawer(
       onDestinationSelected: (index) {
@@ -34,7 +47,7 @@ class CustomDrawer extends StatelessWidget {
                 width: 20,
               ),
               Text(
-                '12/12/12 12:12',
+                syncDateText,
                 style: theme.textTheme.bodySmall,
               ),
             ],
