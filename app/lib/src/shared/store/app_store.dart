@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppStore {
   final themeMode = ValueNotifier(ThemeMode.system);
-
   void changeThemeMode(ThemeMode? mode) {
     if (mode != null) {
       themeMode.value = mode;
@@ -10,7 +9,17 @@ class AppStore {
     }
   }
 
+  final syncDate = ValueNotifier<DateTime?>(null);
+  void setSyncDate(DateTime date) {
+    syncDate.value = date;
+    save();
+  }
+
   void save() {
+    //TODO: salvar os dados na base local
+  }
+
+  void init() {
     //TODO: salvar os dados na base local
   }
 }
